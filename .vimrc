@@ -1,4 +1,4 @@
-set nocompatible " not vi compatible 
+set nocompatible " not vi compatible
 
 "------------------
 " Syntax and indent
@@ -30,7 +30,7 @@ else
     highlight SignColumn ctermbg=234
     highlight StatusLine cterm=bold ctermfg=245 ctermbg=235
     highlight StatusLineNC cterm=bold ctermfg=245 ctermbg=235
-    let g:lightline = {'colorscheme': 'dark'}
+   let g:lightline = {'colorscheme': 'dark'}
     highlight SpellBad cterm=underline
     " patches
     highlight CursorLineNr cterm=NONE
@@ -41,7 +41,7 @@ set autoindent
 
 "---------------------
 " Basic editing config
-"---------------------
+"--------------------
 set shortmess+=I " disable startup message
 set nu " number lines
 set rnu " relative line numbering
@@ -133,89 +133,6 @@ command -nargs=0 Sudow w !sudo tee % >/dev/null
 " Plugin configuration
 "---------------------
 
-" nerdtree
-nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTreeFind<CR>
-
-" buffergator
-let g:buffergator_suppress_keymaps = 1
-nnoremap <Leader>b :BuffergatorToggle<CR>
-
-" gundo
-nnoremap <Leader>u :GundoToggle<CR>
-if has('python3')
-    let g:gundo_prefer_python3 = 1
-endif
-
-" ctrlp
-nnoremap ; :CtrlPBuffer<CR>
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_show_hidden = 1
-
-" ag / ack.vim
-command -nargs=+ Gag Gcd | Ack! <args>
-nnoremap K :Gag "\b<C-R><C-W>\b"<CR>:cw<CR>
-if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-    let g:ackprg = 'ag --vimgrep'
-endif
-
-" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {
-    \ 'mode': 'passive',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': []
-\}
-nnoremap <Leader>s :SyntasticCheck<CR>
-nnoremap <Leader>r :SyntasticReset<CR>
-nnoremap <Leader>i :SyntasticInfo<CR>
-nnoremap <Leader>m :SyntasticToggleMode<CR>
-
-" easymotion
-map <Space> <Plug>(easymotion-prefix)
-
-" incsearch
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-" incsearch-easymotion
-map z/ <Plug>(incsearch-easymotion-/)
-map z? <Plug>(incsearch-easymotion-?)
-map zg/ <Plug>(incsearch-easymotion-stay)
-
-" argwrap
-nnoremap <Leader>w :ArgWrap<CR>
-
-noremap <Leader>x :OverCommandLine<CR>
-
-" markdown
-let g:markdown_fenced_languages = [
-    \ 'asm',
-    \ 'bash=sh',
-    \ 'c',
-    \ 'coffee',
-    \ 'erb=eruby',
-    \ 'javascript',
-    \ 'json',
-    \ 'perl',
-    \ 'python',
-    \ 'ruby',
-    \ 'yaml',
-    \ 'go',
-    \ 'racket',
-    \ 'haskell',
-    \ 'rust',
-\]
-let g:markdown_syntax_conceal = 0
-let g:markdown_folding = 1
-
-" fugitive
-set tags^=.git/tags;~
-
 "---------------------
 " Local customizations
 "---------------------
@@ -225,3 +142,7 @@ let $LOCALFILE=expand("~/.vimrc_local")
 if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
+
+set showmode
+set showcmd
+set ruler
