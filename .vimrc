@@ -1,3 +1,12 @@
+call plug#begin('~/.vim/plugged')
+
+ Plug 'scrooloose/nerdtree'
+ Plug 'mhinz/vim-startify'
+ Plug 'tpope/vim-fugitive'
+ Plug 'lfv89/vim-interestingwords'
+
+call plug#end()
+
 set nocompatible " not vi compatible
 
 "------------------
@@ -132,6 +141,17 @@ command -nargs=0 Sudow w !sudo tee % >/dev/null
 "---------------------
 " Plugin configuration
 "---------------------
+
+"nerdtree"
+let mapleader=','
+" NERDTree settings
+map <leader>g :NERDTreeToggle<CR> // 将 `,g` 作为 :NERDTreeToggle 命令的映射
+
+"vim-interestingwords"
+
+let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
+let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
+let g:interestingWordsRandomiseColors = 1
 
 "---------------------
 " Local customizations

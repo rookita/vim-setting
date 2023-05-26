@@ -1,3 +1,3 @@
-1.put the .vimrc to your home directory.
+1.`git clone https://github.com/rookita/vim-setting.git`
 
-2.`mkdir -p .vim/colors && mv solarized.vim ./vim/colors `
+2.`cp -r vim-setting/.vim ~/.vim && cp vim-setting/.vimrc ~/.vimrc`
